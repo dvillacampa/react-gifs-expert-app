@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { AddCategory, GifGrid } from "./components";
+import { AddCategory, GifGrid } from './components';
+import { PropTypes } from 'prop-types';
 
-export const GifExpertApp = () => {
+export const GifExpertApp = ( {initCategories} ) => {
 
     // Hook categories del componente <GitExpertApp>. Se definien dos categorías iniciales
-    const [ categories, setCategories ] = useState( ['Breakdance', 'cats', 'dogs'] );
+    const [ categories, setCategories ] = useState( initCategories );
 
     const addNewCategory = ( category ) => {
         // Para que funcione, se necesita crear un nuevo Array y pasarlo a la función setCategories
@@ -37,3 +38,7 @@ export const GifExpertApp = () => {
         </>
     )
 };
+
+GifExpertApp.propTypes = {
+    initCategories: PropTypes.array.isRequired 
+}
